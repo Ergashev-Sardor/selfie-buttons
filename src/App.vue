@@ -8,7 +8,7 @@
         will go to the bottom right for Ease of use on mobile.
       </p>
     </div>
-    <div id="burger" class="hamburger" v-on:click="toggleDrawer" v-bind:class="{ 'active': isActive }">
+    <div id="burger" class="hamburger" v-on:click="toggleDrawer"  v-bind:class="{ 'active': isActive }">
       <span></span>
       <span></span>
       <span></span>
@@ -24,12 +24,15 @@
 </template>
 
 <script>
+import {left} from "core-js/internals/array-reduce";
+
 export default {
   name: 'hello-world',
   data: () => ({
     isActive: false,
   }),
   methods: {
+    left,
       toggleDrawer() {
         this.isActive = !this.isActive
       }
@@ -117,12 +120,13 @@ span {
   position: fixed;
   height: 100vh;
   top: 0;
-  right: -100%;
+  right: 100%;
   width: 25%;
   background: #fafafa;
   z-index: 20;
   transition: 1.27s all;
 }
+
 .nav-menu__list {
   display: flex;
   flex-direction: column;
@@ -137,7 +141,7 @@ span {
 }
 .nav-menu.active {
   display: block;
-  right: 0;
+  right: 1130px;
 }
 
 .text {
