@@ -141,7 +141,7 @@ span {
 }
 .nav-menu.active {
   display: block;
-  right: 1130px;
+  right: 1155px;
 }
 
 .text {
