@@ -13,7 +13,7 @@
       <span></span>
       <span></span>
     </div>
-    <div id="nav" class="nav-menu" v-on:click="toggleDrawer" v-bind:class="{ 'active': isActive }">
+    <div id="nav" class="nav-menu" v-on:click="toggleDrawer" v-bind:class="{ 'active': isActive, left: direction === 'right' }">
       <div class="nav-menu__list">
         <div class="nav-menu__list-item">First link</div>
         <div class="nav-menu__list-item">Second link</div>
@@ -30,6 +30,7 @@ export default {
   name: 'hello-world',
   data: () => ({
     isActive: false,
+    direction: 'right',
   }),
   methods: {
     left,
@@ -116,7 +117,7 @@ span {
   transition: 0.7s all;
 }*/
 
-.nav-menu {
+.nav-menu.left {
   position: fixed;
   height: 100vh;
   top: 0;
@@ -124,7 +125,18 @@ span {
   width: 25%;
   background: #fafafa;
   z-index: 20;
-  transition: 1.27s all;
+  transition: 2.5s all;
+}
+
+.nav-menu.right {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  right: -100%;
+  width: 25%;
+  background: #fafafa;
+  z-index: 20;
+  transition: 2.5s all;
 }
 
 .nav-menu__list {
@@ -139,9 +151,13 @@ span {
   font-size: 18px;
   color: #000000;
 }
-.nav-menu.active {
+.nav-menu.active.left {
   display: block;
-  right: 1155px;
+  right: 75%;
+}
+.nav-menu.active.right {
+  display: block;
+  right: 0;
 }
 
 .text {
