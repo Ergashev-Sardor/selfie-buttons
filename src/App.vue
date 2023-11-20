@@ -13,7 +13,7 @@
       <span></span>
       <span></span>
     </div>
-    <div id="nav" class="nav-menu" v-on:click="toggleDrawer" v-bind:class="{ 'active': isActive, left: direction === 'right' }">
+    <div id="nav" class="nav-menu" v-on:click="toggleDrawer" v-bind:class="{ 'active': isActive, [direction]: departureFrom === 'right' }">
       <div class="nav-menu__list">
         <div class="nav-menu__list-item">First link</div>
         <div class="nav-menu__list-item">Second link</div>
@@ -30,7 +30,8 @@ export default {
   name: 'hello-world',
   data: () => ({
     isActive: false,
-    direction: 'right',
+    direction: 'left',
+    departureFrom: 'right',
   }),
   methods: {
     left,
@@ -55,7 +56,6 @@ export default {
     // });
 }
 </script>
-
 <style>
 * {
   box-sizing: border-box;
